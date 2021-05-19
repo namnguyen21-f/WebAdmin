@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.5.0",
+    "@react-firebase/auth": "^0.2.10",
     "@react-firebase/database": "^0.3.11",
     "chart.js": "^3.2.1",
     "dotenv": "^8.2.0",

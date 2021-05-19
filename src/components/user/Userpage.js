@@ -74,7 +74,6 @@ const Dashboardpage = () => {
                         </Box>
                     </Box>
                     {data && data.map((ele,index) => {
-                        console.log(ele.Ratings)
                         return (
                             <Box style={{width:"100%"}} sx={!(ele.status && ele.username && ele.phone) && styles.red}
                                     onClick={() => {setonClickIndex(index)}}>
@@ -103,10 +102,13 @@ const Dashboardpage = () => {
                                         </Text> 
                                         <Box sx={styles.not}>
                                             <Text as="p">
-                                                Rating: <span>{ele.Ratings ? Object.entries(ele.Ratings).length : "0"}</span>
+                                                Phone: <span>{ele.phone}</span>
                                             </Text> 
                                             <Text as="p">
-                                                VisibleToBuyer: <span>{ele.VisibleToBuyer ? "True" : "Fasle"}</span>
+                                                Type: <span>{ele.type == 1 ? "Admin" : "Customer"}</span>
+                                            </Text> 
+                                            <Text as="p">
+                                                Status: <span>{ele.status}</span>
                                             </Text> 
                                         </Box>
                                     </Box>
@@ -179,7 +181,7 @@ const styles = {
             },
             "& li:nth-of-type(3)":{
                 flexShrink: 0,
-                flexBasis: "39%",
+                flexBasis: "29%",
             },
             "& li:nth-of-type(4)":{
                 flexShrink: 0,
@@ -245,7 +247,8 @@ const styles = {
     btn: {
         color: "#fff",
         background: "blue",
-        padding: "0.5rem 1rem"
+        padding: "0.5rem 1rem",
+        cursor: "pointer",
     }
     },
 

@@ -21,7 +21,7 @@ class Homepage extends React.Component {
                         </Box>
                         <Box sx={styles.rightSide}>
                             <Box sx={styles.rightSide.featureBar}>
-
+                                
                             </Box>
                             <Userpage></Userpage>
                         </Box>

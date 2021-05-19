@@ -17,23 +17,41 @@ import LogoDark from 'assets/logo.svg';
 import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
 
+import firebase from "firebase/app";
+import "firebase/auth";
+import {config} from "../../../config"
 
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}else {
+  firebase.app(); // if already initialized, use that one
+}
 export default function Header({ className }) {
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-
+  const [isLogin, setIsLogin] = React.useState(false);
+  const [account , setAccount] = React.useState(null);
   const responseGoogle = (response) => {
-    console.log(response);
     var res = response.profileObj;
-    console.log(res);
+    localStorage.setItem('Authorization','Bearer ' + res);
+    setAccount(res);
+    setIsLogin(false);
   }
 
   const handleSubmit = () => {
-
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      var user = userCredential.user;
+      user.name = user.displayName;
+      setAccount(user);
+      setIsLogin(false);
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
   }
-
-  
   return (
       <header sx={styles.header}>
         <Container sx={styles.container}>
@@ -53,19 +71,17 @@ export default function Header({ className }) {
               )
             })}
           </Flex>
-          <Button className="donate__btn" onClick={() => {}}>
-            Login
+          <Button className="donate__btn" onClick={() => {isLogin == false && setIsLogin(true)}}>
+            {account ? account.name : "Login"}
           </Button>
-          <Box sx={styles.loginSection}>
-            
+          {isLogin && <Box sx={styles.loginSection}>
             <Box sx={styles.loginSection.container}>
               <div>
                   <Box as="form" onSubmit={(e) => e.preventDefault()}>
-    
                     <Label htmlFor="email">Email</Label>
                     <Input name="email" type="email" id="email" mb={3} value={email} required onChange={e => setEmail(e.target.value)}/>
-                    <Label htmlFor="password">Email</Label>
-                    <Input name="password" type="password" id="password" mb={3} value={email} required onChange={e => setPassword(e.target.value)}/>
+                    <Label htmlFor="password">Password</Label>
+                    <Input name="password" type="password" id="password" mb={3} value={password} required onChange={e => setPassword(e.target.value)}/>
                     <Box>
                       <Label mb={3}>
                         <Checkbox />
@@ -82,11 +98,12 @@ export default function Header({ className }) {
                       onFailure={responseGoogle} 
                       ></GoogleLogin>
                   </Box>
-                  
+                  <Button style={{margin :"auto",display: "block",marginTop : "1rem",background: "#333"}} onClick={() => setIsLogin(false)}>BACK</Button>
                 </div>
 
               </Box>
           </Box>
+          }
           <MobileDrawer>
             
           </MobileDrawer>

@@ -21,7 +21,7 @@ const NavigationBar = ({logo}) => {
     return (
         <Box as="div" sx={styles.navBar}>
             <Box sx={styles.navBar.logo}>
-                <a href="#">
+                <a href="/">
                     <Image alt="Logo" style={{width: "100px",height: "auto"}} 
                         src="https://i.pinimg.com/originals/47/b7/bd/47b7bdac4285ee24654ca7d68cf06351.png"></Image>
                 </a>  

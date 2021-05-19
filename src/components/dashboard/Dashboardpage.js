@@ -28,7 +28,7 @@ const Dashboardpage = () => {
         }
 
         const chartData = {
-            labels: ['December' ,'January'  , 'February' , 'March' , 'April'],
+            labels: ['January', 'Febuary' ,'March'  , 'April' , 'May'],
             datasets: [{
                 data: dataArr,
                 backgroundColor: [
