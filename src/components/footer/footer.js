@@ -6,7 +6,7 @@ import FooterLogo from 'assets/logo.svg';
 
 export default function Footer() {
   return (
-    <h1>Footer</h1>
+    <h1></h1>
   );
 }
 

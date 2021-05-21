@@ -118,7 +118,7 @@ const Productpage = () => {
                                     <Box  sx={styles.table.specific.handle} style={{width: "20%"}}>
                                         <Button id="specific" style={{marginBottom: "1rem"}}
                                             sx={styles.wrapper.btn} onClick={(e) => {handleBlockProduct(e,ele.ProID,ele.Enable)}}>
-                                            {ele.Enable ? "Block Product" : "Open Product"}
+                                            {ele.Enable ? "Block Product" : "Unblock Product"}
                                         </Button> 
                                         <Button sx={styles.wrapper.btn}>
                                             Watch Detail

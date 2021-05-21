@@ -23,7 +23,7 @@ const NavigationBar = ({logo}) => {
             <Box sx={styles.navBar.logo}>
                 <a href="/">
                     <Image alt="Logo" style={{width: "100px",height: "auto"}} 
-                        src="https://i.pinimg.com/originals/47/b7/bd/47b7bdac4285ee24654ca7d68cf06351.png"></Image>
+                        src="https://firebasestorage.googleapis.com/v0/b/old-stock-trade.appspot.com/o/Images%2Fic_launcher_round.png?alt=media&token=a1bcb297-5353-402a-948c-6909cabc362c"></Image>
                 </a>  
             </Box>
             <Box as="div" sx={styles.navBar.main}>

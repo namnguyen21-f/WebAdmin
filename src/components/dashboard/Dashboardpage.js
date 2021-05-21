@@ -160,7 +160,7 @@ const Dashboardpage = () => {
         <Container sx={styles.containter}>
             <Box sx={styles.wrapper} style={{marginBottom: "1rem"}}>
                 <Heading sx={styles.wrapper.title}>
-                    Good Morning, ALEXADRAVANTO
+                    WELCOME
                 </Heading>
                 <Text sx={styles.wrapper.subTitle}>
                     Dashboard

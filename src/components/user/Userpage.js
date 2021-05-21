@@ -115,7 +115,7 @@ const Dashboardpage = () => {
                                     <Box  sx={styles.table.specific.handle} style={{width: "30%"}}>
                                         <Button id="specific" style={{marginBottom: "1rem"}}
                                             sx={styles.wrapper.btn} onClick={(e) => {handleBlockProduct(e,ele.id,ele.Enable)}}>
-                                            {ele.Enable ? "Block User" : "UnBlock User"}
+                                            {ele.Enable ? "Block User" : "Unblock User"}
                                         </Button> 
                                         <Button sx={styles.wrapper.btn}>
                                             Watch Detail
@@ -152,7 +152,7 @@ const styles = {
         }
     },
     red: {
-        backgroundColor: "rgba(255,0,0,.6) !important",
+        // backgroundColor: "rgba(255,0,0,.6) !important",
         "& ul li": {
             color: "#fff"
         }

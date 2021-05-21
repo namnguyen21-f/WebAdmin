@@ -30,13 +30,15 @@ export default function Header({ className }) {
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [isLogin, setIsLogin] = React.useState(false);
+  const [isLogin, setIsLogin] = React.useState(true);
   const [account , setAccount] = React.useState(null);
   const responseGoogle = (response) => {
     var res = response.profileObj;
     localStorage.setItem('Authorization','Bearer ' + res);
+    localStorage.setItem('Name','Bearer ' + res.name);
     setAccount(res);
-    setIsLogin(false);
+    // setIsLogin(false);
+    window.location.href = "/dashboard";
   }
 
   const handleSubmit = () => {
@@ -45,7 +47,8 @@ export default function Header({ className }) {
       var user = userCredential.user;
       user.name = user.displayName;
       setAccount(user);
-      setIsLogin(false);
+      // setIsLogin(false);
+      window.location.href = "/dashboard";
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -55,7 +58,7 @@ export default function Header({ className }) {
   return (
       <header sx={styles.header}>
         <Container sx={styles.container}>
-          <Logo src={LogoDark} />
+          {/* <Logo src={LogoDark} />
           <Flex as="nav" sx={styles.nav}>
             {menuItems.map((ele,index) => {
               return (
@@ -73,7 +76,7 @@ export default function Header({ className }) {
           </Flex>
           <Button className="donate__btn" onClick={() => {isLogin == false && setIsLogin(true)}}>
             {account ? account.name : "Login"}
-          </Button>
+          </Button> */}
           {isLogin && <Box sx={styles.loginSection}>
             <Box sx={styles.loginSection.container}>
               <div>

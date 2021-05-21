@@ -18,9 +18,9 @@ export default function IndexPage() {
   return (
     <ThemeProvider theme={theme}>
         <Layout isNav={true}>
-          <SEO title="NextJS Landing Page" />
-          <Banner />
-          <KeyFeature />
+          {/* <SEO title="NextJS Landing Page" /> */}
+          {/* <Banner /> */}
+          {/* <KeyFeature /> */}
           {/* <ServiceSection />
           <Feature />
           <CoreFeature />
